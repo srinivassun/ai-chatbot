@@ -12,12 +12,18 @@ llm = ChatGoogleGenerativeAI(
     temperature=0.5
 )
 system_prompt = """
-Hi.I am a Software Engineer learning python.
+Hi.I am a Python Programming Language.
 It is a fun to work with Python language.
-Answer in 2-6 sentences.
+It is very easy to build AI applications using Python.
+Answer in 2-4 sentences.
 """
-response = llm.invoke([
-    {"role":"system", "content":system_prompt},
-    {"role":"user", "content":"Hi Python, tip of the day?"}])
+print("Hi, I am Python how can I help you today")
 
-print(response.content)
+while True:
+    user_input = input("You: ")
+    if user_input == 'exit':
+        break
+    response = llm.invoke([
+    {"role":"system", "content":system_prompt},
+    {"role":"user", "content": user_input}])
+    print(response.content)
