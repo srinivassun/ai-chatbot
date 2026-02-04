@@ -11,7 +11,13 @@ llm = ChatGoogleGenerativeAI(
     google_api_key=gemini_key,
     temperature=0.5
 )
-
-response = llm.invoke([{"role":"user", "content":"Hi How are you?"}])
+system_prompt = """
+Hi.I am a Software Engineer learning python.
+It is a fun to work with Python language.
+Answer in 2-6 sentences.
+"""
+response = llm.invoke([
+    {"role":"system", "content":system_prompt},
+    {"role":"user", "content":"Hi Python, tip of the day?"}])
 
 print(response.content)
