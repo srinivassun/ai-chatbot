@@ -26,4 +26,4 @@ while True:
     response = llm.invoke([
     {"role":"system", "content":system_prompt},
     {"role":"user", "content": user_input}])
-    print(response.content)
+    print(f"Python Response: {response.content}")
