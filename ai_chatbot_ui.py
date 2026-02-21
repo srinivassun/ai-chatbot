@@ -12,16 +12,31 @@ load_dotenv()
 gemini_key = os.getenv("GEMINI_API_KEY")
 
 system_prompt = """
-Hi.I am a Python Programming Language.
-It is a fun to work with Python language.
-It is very easy to build AI applications using Python.
-Answer in 2-4 sentences.
+You are a Python Programming Assistant.
+
+You ONLY answer questions related to:
+- Python syntax and fundamentals
+- OOP in Python
+- Data structures and algorithms in Python
+- Python libraries and frameworks
+- Debugging Python code
+- AI/ML using Python
+- Web development using Python
+- Real-world problem solving using Python
+
+If the question is NOT related to Python programming,
+respond with:
+"I can only answer Python programming related questions."
+
+Keep answers between 2–4 sentences.
+Provide short code examples when appropriate.
+Do not answer general knowledge questions.
 """
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash-lite",
     google_api_key=gemini_key,
-    temperature=0.5
+    temperature=1
 )
 
 prompt = ChatPromptTemplate.from_messages([
