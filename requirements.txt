@@ -5,3 +5,7 @@ langchain==0.3.27
 pydantic==2.11.7
 todoist-api-python
 tzdata
+langchain-huggingface
+langchain-chroma
+langchain-text-splitters
+langchain-community

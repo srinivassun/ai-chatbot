@@ -52,7 +52,7 @@ def chat(user_input, history):
     messages.append({"role": "user", "content": user_input})
 
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-120b",
         messages=messages,
         temperature=0.7,
         max_tokens=512,
